@@ -40,7 +40,6 @@ provider:
     tableName: ${self:custom.tableName}
     stripeSecretKey: ${self:custom.environment.stripeSecretKey}
 
-
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -120,13 +119,13 @@ functions:
           cors: true
           authorizer: aws_iam
   billing:
-  handler: billing.main
-  events:
-    - http:
-        path: billing
-        method: post
-        cors: true
-        authorizer: aws_iam
+    handler: billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          cors: true
+          authorizer: aws_iam
 
 # Create our resources with separate CloudFormation templates
 resources:
